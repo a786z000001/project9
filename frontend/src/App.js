@@ -3,13 +3,13 @@ import TicketForm from "./components/TicketForm";
 import TicketList from "./components/TicketList";
 
 function App() {
-  const [refreshKey, setRefreshKey] = useState(0);
+  const [refresh, setRefresh] = useState(0);
 
   return (
-    <div style={{ maxWidth: 900, margin: "0 auto", padding: 24, fontFamily: "Arial" }}>
+    <div style={{ maxWidth: 900, margin: "auto", padding: 20 }}>
       <h1>AI Ticket Triage</h1>
-      <TicketForm onSaved={() => setRefreshKey((v) => v + 1)} />
-      <TicketList refreshKey={refreshKey} />
+      <TicketForm onSuccess={() => setRefresh(prev => prev + 1)} />
+      <TicketList refresh={refresh} />
     </div>
   );
 }
